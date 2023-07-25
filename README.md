@@ -9,3 +9,12 @@ $ docker run --rm \
 $ ./vendor/bin/sail up -d
 $ ./vendor/bin/sail artisan key:generate
 ```
+
+三種の神器
+
+```bash
+$ sail artisan ide-helper:generate
+$ sail artisan ide-helper:meta
+$ sail artisan ide-helper:models
+```
+
