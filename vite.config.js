@@ -13,14 +13,18 @@ if (process.env.GITPOD_VITE_URL) {
     }
 }
 
-export default defineConfig({
-    server: {
-        ...extendedViteDevServerOptions
-    },
-    plugins: [
-        laravel({
-            input: 'resources/js/app.js',
-            refresh: true,
-        }),
+export default defineConfig(
+    {
+        server: {
+            ...extendedViteDevServerOptions
+        },
+        plugins: [
+        laravel(
+            {
+                input: 'resources/js/app.js',
+                refresh: true,
+            }
+        ),
     ],
-})
+    }
+)
