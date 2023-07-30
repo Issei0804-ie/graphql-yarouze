@@ -18,7 +18,7 @@ class ProductsFactory extends Factory
     {
         return [
             'name' => $this->faker->title,
-            'stocks' => random_int(1,100),
+            'stock' => random_int(1,100),
             'price' => random_int(1000,10000),
         ];
     }
