@@ -12,6 +12,5 @@ class CreateUser {
             'email' => $args['email'],
             'password' => \Hash::make($args['password']),
         ]);
-
     }
 }
