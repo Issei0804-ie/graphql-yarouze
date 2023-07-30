@@ -5,7 +5,9 @@ use App\Models\User;
 test('ページネーションでユーザーを取得できる', function () {
     $users = User::factory()->count(10)->create();
 
-    $response = $this->graphQL(/** @lang GraphQL */'
+    $response = $this->graphQL(/**
+ * @lang GraphQL
+*/        '
         query Users($first: Int, $page: Int) {
             users(
                 first: $first,
@@ -15,10 +17,12 @@ test('ページネーションでユーザーを取得できる', function () {
                     id
                 }
             }
-        }', [
+            }',
+        [
             'first' => 10,
             'page' => 0,
-        ]);
+        ]
+    );
     $response
         ->assertJson([
             'data' => [
@@ -37,7 +41,9 @@ test('ページネーションでユーザーを取得できる', function () {
 test('nameを部分一致で検索し、ページネーションでユーザーを取得できる', function () {
     $users = User::factory()->count(10)->create(['name' => 'testTest']);
 
-    $response = $this->graphQL(/** @lang GraphQL */'
+    $response = $this->graphQL(/**
+ * @lang GraphQL
+*/        '
         query Users($name: String, $first: Int, $page: Int) {
             users(
                 name: $name,
@@ -48,11 +54,13 @@ test('nameを部分一致で検索し、ページネーションでユーザー�
                     id
                 }
             }
-        }', [
+            }',
+        [
             'name' => 'test%',
             'first' => 10,
             'page' => 0,
-        ]);
+        ]
+    );
 
     $response
         ->assertJson([

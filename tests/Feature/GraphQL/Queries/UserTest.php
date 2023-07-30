@@ -2,10 +2,12 @@
 
 use App\Models\User;
 
-test('idを指定してユーザーを取得することができる', function (){
+test('idを指定してユーザーを取得することができる', function () {
     $user = User::factory()->create();
 
-    $response = $this->graphQL(/** @lang GraphQL */'
+    $response = $this->graphQL(/**
+ * @lang GraphQL
+*/        '
         query User($id: ID!) {
             user(
                 id: $id
@@ -14,9 +16,11 @@ test('idを指定してユーザーを取得することができる', function 
                 name
                 email
             }
-        }', [
+            }',
+        [
             'id' => $user->id,
-        ]);
+        ]
+    );
 
     $response->assertJson([
         'data' => [
@@ -32,7 +36,9 @@ test('idを指定してユーザーを取得することができる', function 
 test('emailを指定してユーザーを取得できる', function () {
     $user = User::factory()->create();
 
-    $response = $this->graphQL(/** @lang GraphQL */'
+    $response = $this->graphQL(/**
+ * @lang GraphQL
+*/        '
         query User($email: String!) {
             user(
                 email: $email
@@ -41,9 +47,11 @@ test('emailを指定してユーザーを取得できる', function () {
                 name
                 email
             }
-        }', [
+            }',
+        [
             'email' => $user->email,
-        ]);
+        ]
+    );
 
     $response->assertJson([
         'data' => [

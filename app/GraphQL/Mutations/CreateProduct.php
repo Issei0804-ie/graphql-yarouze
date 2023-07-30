@@ -5,7 +5,8 @@ namespace App\GraphQL\Mutations;
 use App\Models\Products;
 use App\Models\User;
 
-class CreateProduct {
+class CreateProduct
+{
     public function __invoke($_, array $args)
     {
         $product = Products::create([

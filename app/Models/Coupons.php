@@ -10,7 +10,7 @@ class Coupons extends Model
 {
     use HasUlids;
     protected $fillable = [
-      'is_used',
+        'is_used',
     ];
     use HasFactory;
 }

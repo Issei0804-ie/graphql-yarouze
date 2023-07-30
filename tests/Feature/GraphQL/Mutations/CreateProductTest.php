@@ -1,15 +1,17 @@
 <?php
 
-test('商品を作成できる', function (){
-   $input = [
-       'input' => [
-           'name' => 'test',
-           'price' => 100,
-           'stock' => 10,
-       ]
-   ];
+test('商品を作成できる', function () {
+    $input = [
+        'input' => [
+            'name' => 'test',
+            'price' => 100,
+            'stock' => 10,
+        ],
+    ];
 
-   $response = $this->graphQL(/** @lang GraphQL */'
+    $response = $this->graphQL(/**
+ * @lang GraphQL
+*/        '
         mutation CreateProduct($input: CreateProductInput!) {
             createProduct(input: $input) {
                 record {
@@ -19,7 +21,9 @@ test('商品を作成できる', function (){
                     stock
                 }
             }
-        }', $input);
+        }',
+        $input
+    );
 
     $response
         ->assertJsonStructure([

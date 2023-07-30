@@ -2,16 +2,17 @@
 
 use App\Models\User;
 
-test('ユーザー作成ができる', function ()
-{
+test('ユーザー作成ができる', function () {
     $input = [
         'input' => [
             'name' => 'sampleUser',
             'email' => 'example@example.com',
             'password' => 'password',
-        ]
+        ],
     ];
-    $response = $this->graphQL(/** @lang GraphQL */'
+    $response = $this->graphQL(/**
+ * @lang GraphQL
+*/        '
         mutation CreateUser($input: CreateUserInput!) {
             createUser(
                 input: $input
@@ -20,7 +21,9 @@ test('ユーザー作成ができる', function ()
                     id
                 }
             }
-        }',$input);
+        }',
+        $input
+    );
 
     $response->assertJsonStructure([
         'data' => [
@@ -47,9 +50,11 @@ test('同じemailで登録しようとすると弾かれる', function () {
             'name' => 'sampleUser',
             'email' => $user->email,
             'password' => 'password',
-        ]
+        ],
     ];
-    $response = $this->graphQL(/** @lang GraphQL */'
+    $response = $this->graphQL(/**
+ * @lang GraphQL
+*/        '
         mutation CreateUser($input: CreateUserInput!) {
             createUser(
                 input: $input
@@ -58,7 +63,9 @@ test('同じemailで登録しようとすると弾かれる', function () {
                     id
                 }
             }
-        }',$input);
+        }',
+        $input
+    );
 
     $response->assertJsonStructure([
         'errors' => [
@@ -75,16 +82,18 @@ test('同じemailで登録しようとすると弾かれる', function () {
 });
 
 test('同じユーザー名は許される', function () {
-    $user = User::factory()->create(['email'=>'sample1@example.com']);
+    $user = User::factory()->create(['email' => 'sample1@example.com']);
 
     $input = [
         'input' => [
             'name' => $user->name,
-            'email'=>'sample2@example.com',
+            'email' => 'sample2@example.com',
             'password' => 'password',
-        ]
+        ],
     ];
-    $response = $this->graphQL(/** @lang GraphQL */'
+    $response = $this->graphQL(/**
+ * @lang GraphQL
+*/        '
         mutation CreateUser($input: CreateUserInput!) {
             createUser(
                 input: $input
@@ -93,7 +102,9 @@ test('同じユーザー名は許される', function () {
                     id
                 }
             }
-        }',$input);
+        }',
+        $input
+    );
     $response->assertJsonStructure([
         'data' => [
             'createUser' => [

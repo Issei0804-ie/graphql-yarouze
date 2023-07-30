@@ -13,12 +13,29 @@
     <exclude-pattern>*/public/*</exclude-pattern>
     <exclude-pattern>*/storage/*</exclude-pattern>
     <exclude-pattern>*.blade.php</exclude-pattern>
+    <exclude-pattern>_ide_helper_models.php</exclude-pattern>
+    <exclude-pattern>tests/Pest.php</exclude-pattern>
 
     <rule ref="PSR12" />
 
     <!-- メソッド名のキャメルケース -->
     <rule ref="PSR1.Methods.CamelCapsMethodName.NotCamelCaps">
         <!-- ルールを除外 -->
+        <exclude-pattern>*/tests/*</exclude-pattern>
+    </rule>
+
+    <rule ref="PSR12.Traits.UseDeclaration.NotGrouped">
+        <exclude-pattern>*/app/*</exclude-pattern>
+        <exclude-pattern>*/tests/*</exclude-pattern>
+    </rule>
+
+    <rule ref="Squiz.NamingConventions.ValidVariableName.NotCamelCaps">
+        <exclude-pattern>*/app/*</exclude-pattern>
+        <exclude-pattern>*/tests/*</exclude-pattern>
+    </rule>
+
+    <!-- 配列のkeyだけ指定するやつをテストで許可 -->
+    <rule ref="Squiz.Arrays.ArrayDeclaration.KeySpecified">
         <exclude-pattern>*/tests/*</exclude-pattern>
     </rule>
 
