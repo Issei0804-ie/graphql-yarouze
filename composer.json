@@ -22,6 +22,7 @@
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
         "pestphp/pest": "^2.9",
+        "pestphp/pest-plugin-drift": "^2.2",
         "phpunit/phpunit": "^10.0",
         "spatie/laravel-ignition": "^2.0",
         "squizlabs/php_codesniffer": "^3.7"
