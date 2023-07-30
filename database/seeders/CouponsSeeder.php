@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Products;
+use App\Models\Product;
 use Illuminate\Database\Seeder;
 
 class CouponsSeeder extends Seeder
@@ -12,6 +12,6 @@ class CouponsSeeder extends Seeder
      */
     public function run(): void
     {
-        Products::factory(10)->create();
+        Product::factory(10)->create();
     }
 }

@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\coupons>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Coupon>
  */
-class CouponsFactory extends Factory
+class CouponFactory extends Factory
 {
     /**
      * Define the model's default state.
