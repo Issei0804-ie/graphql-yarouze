@@ -20,7 +20,7 @@ type User {
 }
 
 
-input CreateUserInput {
+input CreateUserInput @validator {
     name: String!
     email: String!
     password: String!
