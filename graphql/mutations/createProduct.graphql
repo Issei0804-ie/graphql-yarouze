@@ -4,15 +4,6 @@ input CreateProductInput {
     stock: Int!
 }
 
-type Product {
-    id: ID!
-    name: String!
-    price: Int!
-    stock: Int!
-    createdAt: DateTime!
-    updatedAt: DateTime!
-}
-
 type CreateProductResult {
     record: Product
 }

@@ -1,0 +1,8 @@
+type Product {
+    id: ID!
+    name: String!
+    price: Int!
+    stock: Int!
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
