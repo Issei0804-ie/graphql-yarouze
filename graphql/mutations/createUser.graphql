@@ -1,0 +1,16 @@
+input CreateUserInput @validator {
+    name: String!
+    email: String!
+    password: String!
+}
+
+type CreateUserResult {
+    record: User!
+}
+
+extend type Mutation {
+    createUser(
+        input: CreateUserInput! @spread
+    ): CreateUserResult
+}
+

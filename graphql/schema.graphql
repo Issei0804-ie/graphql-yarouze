@@ -1,6 +1,6 @@
 scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
 
-type Query {
+extend type Query {
     user(
       id: ID @eq @rules(apply: ["prohibits:email", "required_without:email"])
       email: String @eq @rules(apply: ["prohibits:id", "required_without:id", "email"])
@@ -18,21 +18,5 @@ type User {
     created_at: DateTime!
     updated_at: DateTime!
 }
-
-
-input CreateUserInput @validator {
-    name: String!
-    email: String!
-    password: String!
-}
-
-type CreateUserResult {
-    record: User!
-}
-
-type Mutation {
-    createUser(
-        input: CreateUserInput! @spread
-    ): CreateUserResult
-}
-
+type Query{}
+type Mutation{}
