@@ -26,12 +26,13 @@ input CreateUserInput {
     password: String!
 }
 
+type CreateUserResult {
+    record: User!
+}
+
 type Mutation {
     createUser(
         input: CreateUserInput! @spread
     ): CreateUserResult
 }
 
-type CreateUserResult {
-    record: User!
-}
