@@ -1,4 +1,8 @@
+#import */*.graphql
 scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+type Query
+type Mutation
 
 extend type Query {
     user(
@@ -18,5 +22,3 @@ type User {
     created_at: DateTime!
     updated_at: DateTime!
 }
-type Query{}
-type Mutation{}
