@@ -27,3 +27,47 @@ test('idを指定して商品を検索することができる', function (){
            ]
        );
 });
+
+test('存在しないidを指定すると空が返ってくる', function () {
+    $response = $this
+        ->graphQL(/** @lang GraphQL */'
+            query Product($id: ID!) {
+                product(id:$id) {
+                    id
+                    name
+                    price
+                }
+            }
+        ', ['id' => 1]);
+
+    $response
+        ->assertJson(
+            [
+                'data' => [
+                    'product' => null
+                ]
+            ]
+        );
+});
+
+test('idにstringを入れるとnullが返ってくる', function () {
+    $response = $this
+        ->graphQL(/** @lang GraphQL */'
+            query Product($id: ID!) {
+                product(id:$id) {
+                    id
+                    name
+                    price
+                }
+            }
+        ', ['id' => 'test']);
+
+    $response
+        ->assertJson(
+            [
+                'data' => [
+                    'product' => null
+                ]
+            ]
+        );
+});
