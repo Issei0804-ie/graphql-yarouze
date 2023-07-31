@@ -1,0 +1,17 @@
+input ApplyCouponInput {
+  code: String!
+}
+
+type Coupon {
+    code: String!
+    isUsed: Boolean!
+}
+type ApplyCouponResult {
+    record: Coupon!
+}
+
+extend type Mutation {
+    applyCoupon(
+        input: ApplyCouponInput! @spread
+    ): ApplyCouponResult!
+}

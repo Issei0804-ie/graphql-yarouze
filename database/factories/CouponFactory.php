@@ -18,7 +18,6 @@ class CouponFactory extends Factory
     public function definition(): array
     {
         return [
-            'coupon_code' => Str::random(),
             'is_used' => false,
         ];
     }
