@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('coupons', function (Blueprint $table) {
             $table->ulid('id')->primary();
-            $table->boolean('is_used')->unique();
+            $table->boolean('is_used');
             $table->timestamps();
         });
     }
